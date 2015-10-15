@@ -8,9 +8,32 @@
 
 // custom
 html {
-    -webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
 }
 ::selection {
-    background: $red;
-    text-shadow: none;
+  background-color: tomato;
+  color: $white;
+  text-shadow: none;
+}
+
+.tomato {
+  background-color: tomato;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-1 {
+  flex: 1;
+}
+.flex-2 {
+  flex: 2;
+}
+
+
+.combtest {
+  position: fixed;
+  bottom: 0;
+  font-size: rem-calc(24);
 }
