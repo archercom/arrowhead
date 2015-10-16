@@ -169,13 +169,6 @@ module.exports = function(grunt) {
         },
         src: '<%= project.js_files %>',
         dest: '<%= project.output.folder %><%= project.output.js_folder %><%= project.output.js_filename %>'
-      },
-      deploy: {
-        options: {
-          sourceMap: false
-        },
-        src: '<%= project.js_files %>',
-        dest: '<%= project.output.folder %><%= project.output.js_folder %><%= project.output.js_filename %>'
       }
     },
 
@@ -298,8 +291,7 @@ module.exports = function(grunt) {
 
   // Default task(s)
   // ===================================
-  // grunt.registerTask('default', ['deploy', 'watch']);
-  grunt.registerTask('default', ['build']);
+  grunt.registerTask('default', ['deploy', 'watch']);
   // ----------------------------------------
   grunt.registerTask('deploy', function() {
     // build -> minify -> add our tag
@@ -350,5 +342,13 @@ module.exports = function(grunt) {
       'copy',
     ]);
   });
+
+
+  // quick tasks:
+  // ----------------------------------------
+  // build all css
+  grunt.registerTask('css', ['sass', 'postcss']);
+  // build all js
+  grunt.registerTask('js', ['concat', 'uglify']);
 
 };
