@@ -19,7 +19,6 @@ module.exports = function(grunt) {
       'bower_components/fastclick/lib/fastclick.js',
       'bower_components/jquery/dist/jquery.min.js',
       'bower_components/foundation/js/foundation.min.js',
-      'bower_components/greensock/src/minified/TweenMax.min.js',
       'bower_components/howler/howler.min.js',
       'bower_components/konami-js/konami.js',
     ],
