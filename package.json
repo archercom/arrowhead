@@ -13,7 +13,7 @@
     "url": "https://github.com/archercom/arrowhead/blob/master/LICENSE"
   },
   "scripts": {
-    "postinstall": "bower install && grunt build"
+    "postinstall": "bower install && grunt deploy"
   },
   "devDependencies": {
     "autoprefixer": "^6.0.3",
