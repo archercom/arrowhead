@@ -1,7 +1,20 @@
 <?php
 
-function arrow_theme() {
+// Table of Contents
+// ----------------------------------------
+// 01. General Site things
+// 02. Preprocess Functions
+// 03. Form Alters
+// 04. View Functions
+//
 
+
+
+
+
+// 01. General Site things
+// ============================================================
+function arrow_theme() {
 
   // create custom user-login.tpl.php
   // ----------------------------------------
@@ -26,16 +39,49 @@ function arrow_theme() {
 
 
 /**
+ * Implements hook_css_alter().
+ */
+function arrow_css_alter(&$css) {
+ // Always remove base theme CSS.
+ $theme_path = drupal_get_path('theme', 'zurb_foundation');
+
+ foreach($css as $path => $values) {
+   if(strpos($path, $theme_path) === 0) {
+     unset($css[$path]);
+   }
+ }
+}
+
+
+/**
+ * Implements hook_js_alter().
+ */
+function arrow_js_alter(&$js) {
+ // Always remove base theme JS.
+ $theme_path = drupal_get_path('theme', 'zurb_foundation');
+
+ foreach($js as $path => $values) {
+   if(strpos($path, $theme_path) === 0) {
+     unset($js[$path]);
+   }
+ }
+}
+
+
+
+
+
+
+// 02. Preprocess Functions
+// ============================================================
+
+/**
  * Implements template_preprocess_html().
  *
  */
-//function arrow_preprocess_html(&$variables) {
-//  // Add conditional CSS for IE. To use uncomment below and add IE css file
-//  drupal_add_css(path_to_theme() . '/css/ie.css', array('weight' => CSS_THEME, 'browsers' => array('!IE' => FALSE), 'preprocess' => FALSE));
-//
-//  // Need legacy support for IE downgrade to Foundation 2 or use JS file below
-//  // drupal_add_js('http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE7.js', 'external');
-//}
+// function arrow_preprocess_html(&$variables) {
+//   // things for all HTML pages
+// }
 
 /**
  * Implements template_preprocess_page
@@ -43,6 +89,14 @@ function arrow_theme() {
  */
 //function arrow_preprocess_page(&$variables) {
 //}
+/**
+ * Implements template_preprocess_page
+ */
+function lyons_national_bank_preprocess_page(&$variables) {
+  // https://www.drupal.org/node/1427564
+  drupal_add_js('jQuery.extend(Drupal.settings, { "themePath": "' . path_to_theme() . '" });', 'inline');
+}
+
 
 /**
  * Implements template_preprocess_node
@@ -178,65 +232,3 @@ function arrow_theme() {
 
 
 
-
-/**
- * Implements template_preprocess_panels_pane().
- */
-// function zurb_foundation_preprocess_panels_pane(&$variables) {
-// }
-
-/**
-* Implements template_preprocess_views_views_fields().
-*/
-/* Delete me to enable
-function THEMENAME_preprocess_views_view_fields(&$variables) {
- if ($variables['view']->name == 'nodequeue_1') {
-
-   // Check if we have both an image and a summary
-   if (isset($variables['fields']['field_image'])) {
-
-     // If a combined field has been created, unset it and just show image
-     if (isset($variables['fields']['nothing'])) {
-       unset($variables['fields']['nothing']);
-     }
-
-   } elseif (isset($variables['fields']['title'])) {
-     unset ($variables['fields']['title']);
-   }
-
-   // Always unset the separate summary if set
-   if (isset($variables['fields']['field_summary'])) {
-     unset($variables['fields']['field_summary']);
-   }
- }
-}
-
-// */
-
-/**
- * Implements hook_css_alter().
- */
-//function arrow_css_alter(&$css) {
-//  // Always remove base theme CSS.
-//  $theme_path = drupal_get_path('theme', 'zurb_foundation');
-//
-//  foreach($css as $path => $values) {
-//    if(strpos($path, $theme_path) === 0) {
-//      unset($css[$path]);
-//    }
-//  }
-//}
-
-/**
- * Implements hook_js_alter().
- */
-function arrow_js_alter(&$js) {
- // Always remove base theme JS.
- $theme_path = drupal_get_path('theme', 'zurb_foundation');
-
- foreach($js as $path => $values) {
-   if(strpos($path, $theme_path) === 0) {
-     unset($js[$path]);
-   }
- }
-}
