@@ -1,39 +1,10 @@
-@import "vars";
-@import "settings";
 @import "mixins";
+@import "theme/vars";
+@import "theme/settings";
+
 // vendor
 @import "bower_components/foundation/scss/normalize.scss";
 @import "bower_components/foundation/scss/foundation.scss";
 
-
 // custom
-html {
-  -webkit-font-smoothing: antialiased;
-}
-::selection {
-  background-color: tomato;
-  color: $white;
-  text-shadow: none;
-}
-
-.tomato {
-  background-color: tomato;
-}
-
-.flex {
-  display: flex;
-}
-
-.flex-1 {
-  flex: 1;
-}
-.flex-2 {
-  flex: 2;
-}
-
-
-.combtest {
-  position: fixed;
-  bottom: 0;
-  font-size: rem-calc(24);
-}
+@import "theme/base";
