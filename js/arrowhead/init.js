@@ -14,29 +14,12 @@
 
 
 
-    init: function() {
-
-      console.log(this.tag);
-
-      // initialize all modules
-      for (var module in this.modules) {
-        this.modules[module].init();
-      }
-
-
-      // add smooth scroll
-      this.utils.smooth_scroll();
-
-
-      // konami /* play sound effect */
-      var easter_egg = new Konami(this.utils.konami);
-
-    },
-
-
-
     utils: {
 
+      /**
+       * check if the Drupal object exists
+       * @return {boolean}
+       */
       drupal_test: function () {
         var drupal_land = false;
         // recon to see if we're in Drupal-land
@@ -47,10 +30,14 @@
         return drupal_land;
       },
 
+      /**
+       * smooth scroll to a section of the page
+       * @return {N/A}
+       */
       smooth_scroll: function () {
         // smooth scroll - original source below
         // http://www.learningjquery.com/2007/10/improved-animated-scrolling-script-for-same-page-links
-        $('a[href*=#]:not([href=#])').click(function() {
+        $('a[data-smooth-scroll]').on('click.smooth_scroll', function() {
           if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
             var target = $(this.hash);
             target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
@@ -65,45 +52,58 @@
         });
       },
 
+      /**
+       * Easter egg
+       * @return {N/A}
+       */
       konami: function () {
 
         // file urls
-        var howlerjs_url = 'js/vendor/howler.min.js';
         var mp3s = [
-          'misc/internet.mp3',
-          'misc/mario.mp3',
-          'misc/seinfeld.mp3'
+          '/misc/internet.mp3',
+          '/misc/mario.mp3',
+          '/misc/seinfeld.mp3'
         ];
-        // file paths are different for Drupal
-        if (arrow.settings.in_drupal_environment) {
+        // file paths are different for Drupal, sites/all/themes/
+        if (arrow.utils.drupal_test()) {
           for (var i = 0; i < mp3s.length; i++) {
-            mp3s[i] = arrow.settings.drupal_theme_path + mp3s[i];
+            mp3s[i] = Drupal.settings.basePath + Drupal.settings.themePath + mp3s[i];
           }
-          howlerjs_url = arrow.settings.drupal_theme_path + howlerjs_url;
         }
 
         // load Howler
-        if (window.Howl === undefined) {
-          $.ajax({
-            url: howlerjs_url,
-            dataType: 'script',
-            success: function () {
-              arrow.sound = new Howl({
-                urls: [mp3s[Math.floor(Math.random() * 3)]]
-              }).play();
-            }
-          });
-
+        if (arrow.sound === undefined) {
+          arrow.sound = new Howl({
+            urls: [mp3s[Math.floor(Math.random() * 3)]]
+          }).play();
         } else {
           // play new sound. stop other one
           arrow.sound.unload();
           arrow.sound = new Howl({
             urls: [mp3s[Math.floor(Math.random() * 3)]]
           }).play();
-
         }
 
       }
+    },
+
+
+
+    init: function() {
+
+      if (console !== undefined) console.log(this.tag);
+
+      // add smooth scroll
+      this.utils.smooth_scroll();
+
+      // initialize all modules
+      for (var module in this.modules) {
+        this.modules[module].init();
+      }
+
+      // konami /* play sound effect */
+      var easter_egg = new Konami(this.utils.konami);
+
     }
 
   };
