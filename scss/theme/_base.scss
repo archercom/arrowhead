@@ -6,25 +6,3 @@ html {
   color: $white;
   text-shadow: none;
 }
-
-.tomato {
-  background-color: tomato;
-}
-
-.flex {
-  display: flex;
-}
-
-.flex-1 {
-  flex: 1;
-}
-.flex-2 {
-  flex: 2;
-}
-
-
-.combtest {
-  position: fixed;
-  bottom: 0;
-  font-size: rem-calc(24);
-}
