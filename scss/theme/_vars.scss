@@ -1,8 +1,21 @@
 // colors
-$white: #fafafa;
-$black: #2f2f2f;
-$grey: #ccc;
-$red: #b92d19;
+// be sure to add the vars to the $theme_colors
+$blue:        #2390dc;
+$green:       #b2c936;
+
+$theme_colors: (
+  "blue":        $blue,
+  "green":       $green,
+);
+
+
 
 // type + weights
-// $family-name: 'Lato';
+// $font: 'Source Sans Pro';  // add to appropriate font stack and uncomment
+// $font-family-sans-serif: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
+// $font-family-serif: Georgia, Cambria, "Times New Roman", Times, serif;
+
+// $light: 300;
+// $regular: 400;
+// $semi-bold: 600;
+// $bold: 700;
