@@ -17,10 +17,9 @@ module.exports = function(grunt) {
       'js/arrowhead/init.js',
     ],
     js_vendor_files: [
-      'bower_components/modernizr/modernizr.js',
-      'bower_components/fastclick/lib/fastclick.js',
       'bower_components/jquery/dist/jquery.min.js',
-      'bower_components/foundation/js/foundation.min.js',
+      'bower_components/what-input/what-input.min.js',
+      'bower_components/foundation-sites/dist/foundation.min.js',
       'bower_components/howler.js/howler.min.js',
       'bower_components/konami-js/konami.js',
     ],
@@ -50,8 +49,7 @@ module.exports = function(grunt) {
   };
 
   // various config files
-  var stylelintConfig = grunt.file.readJSON('scss/.stylelintrc'),
-      autoprefixConfig = { browsers: 'last 2 versions' };
+  var autoprefixConfig = { browsers: 'last 2 versions' };
 
 
 
@@ -133,7 +131,6 @@ module.exports = function(grunt) {
         options: {
           map: true,
           processors: [
-            require('stylelint')(),
             require('autoprefixer')(autoprefixConfig)
           ]
         },
@@ -143,7 +140,6 @@ module.exports = function(grunt) {
         options: {
           map: false,
           processors: [
-            require('stylelint')(),
             require('autoprefixer')(autoprefixConfig),
             require('cssnano')()
           ]

@@ -3,18 +3,11 @@
 // ============================================================
 
 ul.glyphs {
-  @include block-grid(2);
   li {
     text-align: center;
   }
   .icon {
     font-size: rem-calc(32);
-  }
-  @include mq(medium) {
-    @include block-grid(4);
-  }
-  @include mq(medium) {
-    @include block-grid(6);
   }
 }
 

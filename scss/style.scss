@@ -1,10 +1,10 @@
 @import "mixins";
 @import "theme/vars";
-@import "theme/settings";
 
-// vendor
-@import "bower_components/foundation/scss/normalize.scss";
-@import "bower_components/foundation/scss/foundation.scss";
+// foundation
+@import "theme/settings";  // custom theme settings
+@import "bower_components/foundation-sites/scss/foundation.scss";
+@include foundation-everything;  // build with regular grid
 
 // archer
 @import "archer";
