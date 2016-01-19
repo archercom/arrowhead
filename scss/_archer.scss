@@ -2,6 +2,10 @@
 // these classes can be used in production but are mostly for internal use
 // ============================================================
 
+[data-clipboard] {
+  cursor: pointer;
+}
+
 ul.glyphs {
   li {
     text-align: center;

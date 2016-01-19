@@ -21,10 +21,12 @@ $jet         : #222222;
 $black       : #000000;
 
 // be sure to add the vars to the $theme_colors
+$red:         #e61938;
 $blue:        #2390dc;
 $green:       #b2c936;
 
 $theme_colors: (
+  "red":         $red,
   "blue":        $blue,
   "green":       $green,
 );

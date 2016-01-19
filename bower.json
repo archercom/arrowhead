@@ -17,6 +17,7 @@
   "dependencies": {
     "foundation-sites": "~6.1.1",
     "howler.js": "howler#~1.1.27",
-    "konami-js": "*"
+    "konami-js": "*",
+    "clipboard": "~1.5.5"
   }
 }

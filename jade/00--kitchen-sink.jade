@@ -8,7 +8,7 @@ html(lang="en").no-js
     include inc/_head.jade
 
   body
-    a(href="#main").show-for-sr Skip to main content
+    a(href="#main").show-on-focus Skip to main content
     .container
       header.header
         .row
@@ -36,11 +36,11 @@ html(lang="en").no-js
 
           //- main area
           .columns.medium-10
-            section.thick-page-section
-              h2#colors Colors
+            section#colors.thick-page-section
+              h2 Colors
+              hr
               p For every color there are font and background classes.
               p Ex: red - .red, .red-bg
-              hr
               include kitchen-sink/_colors.jade
 
 

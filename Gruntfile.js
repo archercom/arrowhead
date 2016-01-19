@@ -22,6 +22,7 @@ module.exports = function(grunt) {
       'bower_components/foundation-sites/dist/foundation.min.js',
       'bower_components/howler.js/howler.min.js',
       'bower_components/konami-js/konami.js',
+      'bower_components/clipboard/dist/clipboard.min.js',
     ],
     misc_dir: 'misc/',
     sass_dir: 'scss/',
