@@ -162,11 +162,11 @@ $foundation_colors: (
   .medium-xtra-thick-margin-right    { margin-right: $column-gutter * 2 !important; }
 
   // margin-left
-  .xtra-thin-margin-left             { margin-left: $column-gutter * 0.25 !important; }
+  .medium-xtra-thin-margin-left      { margin-left: $column-gutter * 0.25 !important; }
   .medium-thin-margin-left           { margin-left: $column-gutter * 0.5 !important; }
   .medium-margin-left                { margin-left: $column-gutter * 1 !important; }
   .medium-thick-margin-left          { margin-left: $column-gutter * 1.5 !important; }
-  .xtra-thick-margin-left            { margin-left: $column-gutter * 2 !important; }
+  .medium-xtra-thick-margin-left     { margin-left: $column-gutter * 2 !important; }
 
   // no margin
   .medium-no-margin                  { margin: 0 !important; }
