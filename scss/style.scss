@@ -3,7 +3,8 @@
 
 // foundation
 @import "theme/settings";  // custom theme settings
-@import "bower_components/foundation-sites/scss/foundation.scss";
+@import "bower_components/foundation-sites/scss/foundation";
+@import "bower_components/motion-ui/motion-ui";
 @include foundation-everything;  // build with regular grid
 
 // archer
