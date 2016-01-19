@@ -7,8 +7,17 @@
 }
 
 ul.glyphs {
+  @include grid-row;
+  list-style: none;
   li {
     text-align: center;
+    @include grid-column(6);
+    @include breakpoint(medium) {
+      @include grid-column(4);
+    }
+    @include breakpoint(large) {
+      @include grid-column(2);
+    }
   }
   .icon {
     font-size: rem-calc(32);
