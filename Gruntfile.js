@@ -20,6 +20,7 @@ module.exports = function(grunt) {
       'bower_components/jquery/dist/jquery.min.js',
       'bower_components/what-input/what-input.min.js',
       'bower_components/foundation-sites/dist/foundation.min.js',
+      'bower_components/motion-ui/dist/motion-ui.min.js',
       'bower_components/howler.js/howler.min.js',
       'bower_components/konami-js/konami.js',
       'bower_components/clipboard/dist/clipboard.min.js',
