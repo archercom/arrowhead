@@ -1,11 +1,11 @@
 {
   "name": "arrow",
-  "description": "web project starter",
+  "description": "Dependencies for our Grunt-power, Foundation-based, Drupal sub-theme",
   "authors": [
-    "luis rosario //zapo"
+    "luis rosario [zapo]"
   ],
-  "homepage": "http://archercom.com/",
-  "version": "0.1.0",
+  "homepage": "http://archercom.com",
+  "version": "0.3.0",
   "license": "MIT",
   "ignore": [
     "**/.*",
@@ -15,8 +15,9 @@
     "tests"
   ],
   "dependencies": {
-    "foundation": "~5.5.3",
+    "foundation-sites": "~6.1.1",
+    "howler.js": "howler#~1.1.27",
     "konami-js": "*",
-    "howler.js": "howler#~1.1.27"
+    "clipboard": "~1.5.5"
   }
 }
