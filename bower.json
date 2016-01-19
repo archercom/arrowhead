@@ -1,10 +1,10 @@
 {
   "name": "arrow",
-  "description": "web project starter",
+  "description": "Dependencies for our Grunt-power, Foundation-based, Drupal sub-theme",
   "authors": [
-    "luis rosario //zapo"
+    "luis rosario [zapo]"
   ],
-  "homepage": "http://archercom.com/",
+  "homepage": "http://archercom.com",
   "version": "0.1.0",
   "license": "MIT",
   "ignore": [

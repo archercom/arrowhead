@@ -6,8 +6,10 @@
 @import "bower_components/foundation/scss/normalize.scss";
 @import "bower_components/foundation/scss/foundation.scss";
 
-// custom
-@import "utilities";
+// archer
+@import "archer";
 @import "drupal";
-@import "theme/base";
-@import "theme/colors";
+@import "utilities";
+
+// custom
+@import "theme/theme";

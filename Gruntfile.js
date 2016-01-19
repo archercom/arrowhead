@@ -11,6 +11,8 @@ module.exports = function(grunt) {
     // ----------------------------------------
     images_dir: 'images/',
     jade_dir: 'jade/',
+    jade_inc_dir: 'inc/',
+    jade_kitchen_dir: 'kitchen-sink/',
     js_files: [
       'js/arrowhead/init.js',
     ],
@@ -267,8 +269,12 @@ module.exports = function(grunt) {
         files: ['<%= project.sass_dir %>*.scss','<%= project.sass_dir %>**/*.scss'],
         tasks: ['sass:build', 'postcss:build']
       },
-      jade: {
-        files: [ '<%= project.jade_dir %>*.jade', '<%= project.jade_dir %>**/*.jade'],
+      jade_pages: {
+        files: [ '<%= project.jade_dir %>*.jade'],
+        tasks: ['newer:jade:build']
+      },
+      jade_inc: {
+        files: [ '<%= project.jade_dir %><%= project.jade_inc_dir %>*.jade', '<%= project.jade_dir %><%= project.jade_kitchen_dir %>*.jade'],
         tasks: ['jade:build']
       },
       js: {

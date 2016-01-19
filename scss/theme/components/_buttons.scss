@@ -1,0 +1,17 @@
+/* Default button styles from Foundation 5 */
+%button {
+  display: inline-block;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border-radius: 0;
+  border-style: $button-border-style;
+  border-width: $button-border-width;
+  cursor: $cursor-pointer-value;
+  font-family: $button-font-family;
+  font-weight: $button-font-weight;
+  line-height: normal;
+  margin: 0 0 $button-margin-bottom;
+  position: relative;
+  text-align: $button-font-align;
+  text-decoration: none;
+}
