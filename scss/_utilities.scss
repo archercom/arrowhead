@@ -295,3 +295,17 @@ $foundation_colors: (
 .no-border {
   border: none;
 }
+
+.inline-list {
+  @include clearfix;
+  list-style: none;
+  margin-left: 0;
+  li {
+    float: left;
+    margin-right: rem-calc(15);
+    vertical-align: top;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
