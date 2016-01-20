@@ -9,12 +9,25 @@
 //
 
 
+/**
+ * Loads additional template files.
+ */
+function _arrowhead_load() {
+  $themepath = drupal_get_path('theme', 'arrowhead');
+  // include $themepath . '/inc/elements.inc';
+  // include $themepath . '/inc/form.inc';
+  include $themepath . '/inc/menu.inc';
+  // include $themepath . '/inc/theme.inc';
+}
+
+_arrowhead_load();
+
 
 
 
 // 01. General Site things
 // ============================================================
-function arrow_theme() {
+function arrowhead_theme() {
 
   // create custom user-login.tpl.php
   // ----------------------------------------
@@ -23,10 +36,10 @@ function arrow_theme() {
 
   $items['user_login'] = array(
     'render element' => 'form',
-    'path' => drupal_get_path('theme', 'arrow') . '/templates',
+    'path' => drupal_get_path('theme', 'arrowhead') . '/templates',
       'template' => 'user-login',
       'preprocess functions' => array(
-        'arrow_preprocess_user_login'
+        'arrowhead_preprocess_user_login'
       ),
   );
 
@@ -41,7 +54,7 @@ function arrow_theme() {
 /**
  * Implements hook_css_alter().
  */
-function arrow_css_alter(&$css) {
+function arrowhead_css_alter(&$css) {
  // Always remove base theme CSS.
  $theme_path = drupal_get_path('theme', 'zurb_foundation');
 
@@ -56,7 +69,7 @@ function arrow_css_alter(&$css) {
 /**
  * Implements hook_js_alter().
  */
-function arrow_js_alter(&$js) {
+function arrowhead_js_alter(&$js) {
  // Always remove base theme JS.
  $theme_path = drupal_get_path('theme', 'zurb_foundation');
 
@@ -79,7 +92,7 @@ function arrow_js_alter(&$js) {
  * Implements template_preprocess_html().
  *
  */
-// function arrow_preprocess_html(&$variables) {
+// function arrowhead_preprocess_html(&$variables) {
 //   // things for all HTML pages
 // }
 
@@ -87,7 +100,7 @@ function arrow_js_alter(&$js) {
  * Implements template_preprocess_page
  *
  */
-//function arrow_preprocess_page(&$variables) {
+//function arrowhead_preprocess_page(&$variables) {
 //}
 /**
  * Implements template_preprocess_page
@@ -102,13 +115,13 @@ function lyons_national_bank_preprocess_page(&$variables) {
  * Implements template_preprocess_node
  *
  */
-//function arrow_preprocess_node(&$variables) {
+//function arrowhead_preprocess_node(&$variables) {
 //}
 
 /**
  * Implements hook_preprocess_block()
  */
-//function arrow_preprocess_block(&$variables) {
+//function arrowhead_preprocess_block(&$variables) {
 //  // Add wrapping div with global class to all block content sections.
 //  $variables['content_attributes_array']['class'][] = 'block-content';
 //
@@ -148,28 +161,28 @@ function lyons_national_bank_preprocess_page(&$variables) {
 //  }
 //}
 
-//function arrow_preprocess_views_view(&$variables) {
+//function arrowhead_preprocess_views_view(&$variables) {
 //}
 
 /**
  * Implements template_preprocess_panels_pane().
  *
  */
-//function arrow_preprocess_panels_pane(&$variables) {
+//function arrowhead_preprocess_panels_pane(&$variables) {
 //}
 
 /**
  * Implements template_preprocess_views_views_fields().
  *
  */
-//function arrow_preprocess_views_view_fields(&$variables) {
+//function arrowhead_preprocess_views_view_fields(&$variables) {
 //}
 
 /**
  * Implements theme_form_element_label()
  * Use foundation tooltips
  */
-//function arrow_form_element_label($variables) {
+//function arrowhead_form_element_label($variables) {
 //  if (!empty($variables['element']['#title'])) {
 //    $variables['element']['#title'] = '<span class="secondary label">' . $variables['element']['#title'] . '</span>';
 //  }
@@ -182,7 +195,7 @@ function lyons_national_bank_preprocess_page(&$variables) {
 /**
  * Implements hook_preprocess_button().
  */
-//function arrow_preprocess_button(&$variables) {
+//function arrowhead_preprocess_button(&$variables) {
 //  $variables['element']['#attributes']['class'][] = 'button';
 //  if (isset($variables['element']['#parents'][0]) && $variables['element']['#parents'][0] == 'submit') {
 //    $variables['element']['#attributes']['class'][] = 'secondary';
@@ -193,7 +206,7 @@ function lyons_national_bank_preprocess_page(&$variables) {
  * Implements hook_form_alter()
  * Example of using foundation sexy buttons
  */
-// function arrow_form_alter(&$form, &$form_state, $form_id) {
+// function arrowhead_form_alter(&$form, &$form_state, $form_id) {
 //   // Sexy submit buttons
 //   if (!empty($form['actions']) && !empty($form['actions']['submit'])) {
 //     $classes = (is_array($form['actions']['submit']['#attributes']['class']))
@@ -208,7 +221,7 @@ function lyons_national_bank_preprocess_page(&$variables) {
  * Implements hook_form_FORM_ID_alter()
  * Example of using foundation sexy buttons on comment form
  */
-//function arrow_form_comment_form_alter(&$form, &$form_state) {
+//function arrowhead_form_comment_form_alter(&$form, &$form_state) {
   // Sexy preview buttons
 //  $classes = (is_array($form['actions']['preview']['#attributes']['class']))
 //    ? $form['actions']['preview']['#attributes']['class']
@@ -222,11 +235,11 @@ function lyons_national_bank_preprocess_page(&$variables) {
  * Add placeholder attribute to the Search form
  * Implements hook_form_FORM_ID_alter()
 */
-// function arrow_form_search_block_form_alter(&$form, &$form_state) {
+// function arrowhead_form_search_block_form_alter(&$form, &$form_state) {
 //   $form['search_block_form']['#attributes']['placeholder'] = "I'm looking for...";
 // }
 
-// function arrow_preprocess_search_block_form(&$variables) {
+// function arrowhead_preprocess_search_block_form(&$variables) {
 //   // dpm($variables);
 // }
 
