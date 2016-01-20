@@ -14,10 +14,9 @@
  */
 function _arrowhead_load() {
   $themepath = drupal_get_path('theme', 'arrowhead');
-  // include $themepath . '/inc/elements.inc';
+  include $themepath . '/inc/elements.inc';
   // include $themepath . '/inc/form.inc';
   include $themepath . '/inc/menu.inc';
-  // include $themepath . '/inc/theme.inc';
 }
 
 _arrowhead_load();
