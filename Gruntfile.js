@@ -9,10 +9,12 @@ module.exports = function(grunt) {
 
     // configuration
     // ----------------------------------------
-    images_dir: 'images/',
-    jade_dir: 'jade/',
-    jade_inc_dir: 'inc/',
-    jade_kitchen_dir: 'kitchen-sink/',
+    fonts_dir:        'fonts/',
+    images_dir:       'images/',
+    jade_dir:         'jade/',
+    jade_inc_dir:       'inc/',
+    jade_pages_dir:     'pages/',
+    jade_kitchen_dir:   'kitchen-sink/',
     js_files: [
       'js/arrowhead/init.js',
     ],
@@ -40,9 +42,7 @@ module.exports = function(grunt) {
       js_filename:                    'main.js',
       js_filename_minified:           'main.min.js',
       js_vendor_filename:             'vendors.js',
-      js_vendor_filename_minified:    'vendors.min.js',
-      js_master_filename:             'scripts.js',
-      js_master_filename_minified:    'scripts.min.js'
+      js_vendor_filename_minified:    'vendors.min.js'
     },
 
     deploy: {
@@ -79,7 +79,25 @@ module.exports = function(grunt) {
     // ----------------------------------------
     // 1. compile
     jade: {
-      build: {
+      pages: {
+        options: {
+          compileDebug: false,
+          pretty: true,
+        },
+        files: [
+          {
+            expand: true,
+            cwd: '<%= project.jade_dir %><%= project.jade_pages_dir %>',
+            src: [
+              '*.jade'
+            ],
+            dest: '<%= project.output.folder %>',
+            ext: '.html',
+            flatten: true
+          }
+        ]
+      },
+      types: {
         options: {
           compileDebug: false,
           pretty: true,
@@ -207,6 +225,13 @@ module.exports = function(grunt) {
           dest: '<%= project.deploy.folder %>'
         }]
       },
+      fonts: {
+        files : [{
+          expand: true,
+          src: ['<%= project.fonts_dir %>**'],
+          dest: '<%= project.deploy.folder %>'
+        }]
+      },
       images: {
         files : [{
           expand: true,
@@ -267,13 +292,17 @@ module.exports = function(grunt) {
         files: ['<%= project.sass_dir %>*.scss','<%= project.sass_dir %>**/*.scss'],
         tasks: ['sass:build', 'postcss:build']
       },
-      jade_pages: {
-        files: [ '<%= project.jade_dir %>*.jade'],
-        tasks: ['newer:jade:build']
-      },
       jade_inc: {
-        files: [ '<%= project.jade_dir %><%= project.jade_inc_dir %>*.jade', '<%= project.jade_dir %><%= project.jade_kitchen_dir %>*.jade'],
-        tasks: ['jade:build']
+        files: [ '<%= project.jade_dir %><%= project.jade_inc_dir %>*.jade'],
+        tasks: ['jade']
+      },
+      jade_pages: {
+        files: [ '<%= project.jade_dir %><%= project.jade_pages_dir %>*.jade'],
+        tasks: ['newer:jade:pages']
+      },
+      jade_types: {
+        files: [ '<%= project.jade_dir %>*.jade'],
+        tasks: ['newer:jade:types']
       },
       js: {
         files: '<%= concat.build.src %>',

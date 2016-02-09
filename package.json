@@ -3,7 +3,7 @@
   "description": "web project starter",
   "author": "Archer Communications [luis rosario //zapo]",
   "homepage": "http://archercom.com/",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/archercom/arrowhead.git"

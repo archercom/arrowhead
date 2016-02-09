@@ -5,7 +5,7 @@
  *
  * http://foundation.zurb.com/docs/elements.php#panelEx
  */
-function cross_border_showcase_status_messages($variables) {
+function arrowhead_status_messages($variables) {
   $display = $variables['display'];
   $output = '';
 
