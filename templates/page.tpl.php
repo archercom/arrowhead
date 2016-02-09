@@ -10,7 +10,6 @@
     </div>
   <?php endif; ?>
 
-
   <main id="main" class="main" role="main">
     <?php //if ($breadcrumb): print $breadcrumb; endif; ?>
 
@@ -30,10 +29,7 @@
     <?php print render($page['content']); ?>
   </main>
 
-
   <footer class="footer" role="contentinfo">
   <?php if (!empty($page['footer'])): ?><?php print render($page['footer']); ?><?php endif; ?>
   </footer>
-
-  <?php if ($messages && $zurb_foundation_messages_modal): print $messages; endif; ?>
 </div>
