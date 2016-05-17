@@ -26,7 +26,7 @@ ul.glyphs {
 
 
 .kitchen-sink-nav {
-  @include mq(medium) {
+  @include breakpoint(medium) {
     position: fixed;
     backface-visibility: hidden;
   }

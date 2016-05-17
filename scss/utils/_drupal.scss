@@ -10,8 +10,10 @@
   }
 }
 
-.drupal-messages {
-  .alert-box {
-    margin-bottom: 0;
-  }
+.drupal-messages .callout {
+  margin-bottom: 0;
+}
+
+.element-invisible {
+  @include element-invisible;
 }

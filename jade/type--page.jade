@@ -1,0 +1,23 @@
+doctype html
+html(lang="en").no-js
+  head
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
+    block title
+      title Arrowhead | Archer
+    meta(name="description", content="A basic page")
+    include inc/head.jade
+
+  body
+    a(href="#main").show-on-focus Skip to main content
+    #container.container
+      include inc/global-header.jade
+
+      main#main.main
+        block content
+          .row
+            .columns
+              p A basic page
+
+      include inc/global-footer.jade
+    include inc/scripts.jade

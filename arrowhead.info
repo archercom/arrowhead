@@ -1,4 +1,4 @@
-name = arrowhead
+name = Arrowhead
 description = Custom sub-theme based on the the Zurb Foundation base theme.
 screenshot = images/screenshot.png
 
@@ -11,7 +11,7 @@ base theme = zurb_foundation
 
 ; CSS
 ; ----------------------------------------
-stylesheets[all][] = css/style.css
+stylesheets[all][] = css/style.min.css
 
 ; Block loading of Foundation css from the base theme.
 stylesheets[all][] = css/normalize.css
@@ -20,12 +20,11 @@ stylesheets[all][] = css/foundation.min.css
 
 ; JS
 ; ----------------------------------------
-scripts[] = js/vendors.js
-scripts[] = js/main.js
+scripts[] = js/scripts.min.js
 
 ; Block loading of Foundation js
-scripts[] = js/libs.min.js
-scripts[] = js/foundation.min.js
+;scripts[] = js/libs.min.js
+;scripts[] = js/foundation.min.js
 
 
 ; Regions

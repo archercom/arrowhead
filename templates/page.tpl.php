@@ -1,13 +1,10 @@
-<div role="document" class="container">
-  <header role="banner" class="header">
+<div id="container" role="document" class="container">
+  <header role="banner" class="global-header">
     <?php if (!empty($page['header'])): ?><?php print render($page['header']); ?><?php endif; ?>
-    <?php if ($top_bar_main_menu) : ?> <?php print $top_bar_main_menu; ?> <?php endif; ?>
   </header>
 
   <?php if ($messages && !$zurb_foundation_messages_modal): ?>
-    <div class="drupal-messages">
-      <?php if ($messages): print $messages; endif; ?>
-    </div>
+  <div class="drupal-messages"> <?php if ($messages): print $messages; endif; ?> </div>
   <?php endif; ?>
 
   <main id="main" class="main" role="main">
@@ -29,7 +26,7 @@
     <?php print render($page['content']); ?>
   </main>
 
-  <footer class="footer" role="contentinfo">
-  <?php if (!empty($page['footer'])): ?><?php print render($page['footer']); ?><?php endif; ?>
+  <footer role="contentinfo" class="global-footer">
+    <?php if (!empty($page['footer'])): ?><?php print render($page['footer']); ?><?php endif; ?>
   </footer>
 </div>

@@ -9,17 +9,17 @@
 //
 
 
-/**
- * Loads additional template files.
- */
+// 00. Load up other things for basic admin stuff
+// ============================================================
 function _arrowhead_load() {
   $themepath = drupal_get_path('theme', 'arrowhead');
   include $themepath . '/inc/elements.inc';
-  // include $themepath . '/inc/form.inc';
+  include $themepath . '/inc/form.inc';
   include $themepath . '/inc/menu.inc';
 }
 
 _arrowhead_load();
+
 
 
 
@@ -80,6 +80,18 @@ function arrowhead_js_alter(&$js) {
 }
 
 
+/**
+ * Implements theme_links() targeting the main menu topbar.
+ * Override base template, which would add the class of "left",which  we don't need
+ */
+function arrowhead__topbar_main_menu($variables) {
+  // We need to fetch the links ourselves because we need the entire tree.
+  $links = menu_tree_output(menu_tree_all_data(variable_get('menu_main_links_source', 'main-menu')));
+  $output = _zurb_foundation_links($links);
+
+  return '<ul' . drupal_attributes($variables['attributes']) . '>' . $output . '</ul>';
+}
+
 
 
 
@@ -104,10 +116,10 @@ function arrowhead_js_alter(&$js) {
 /**
  * Implements template_preprocess_page
  */
-function lyons_national_bank_preprocess_page(&$variables) {
-  // https://www.drupal.org/node/1427564
-  drupal_add_js('jQuery.extend(Drupal.settings, { "themePath": "' . path_to_theme() . '" });', 'inline');
-}
+// function arrowhead_preprocess_page(&$variables) {
+//   // https://www.drupal.org/node/1427564
+//   drupal_add_js('jQuery.extend(Drupal.settings, { "themePath": "' . path_to_theme() . '" });', 'inline');
+// }
 
 
 /**
@@ -228,19 +240,3 @@ function lyons_national_bank_preprocess_page(&$variables) {
 //  $classes = array_merge($classes, array('secondary', 'button', 'radius'));
 //  $form['actions']['preview']['#attributes']['class'] = $classes;
 //}
-
-
-/**
- * Add placeholder attribute to the Search form
- * Implements hook_form_FORM_ID_alter()
-*/
-// function arrowhead_form_search_block_form_alter(&$form, &$form_state) {
-//   $form['search_block_form']['#attributes']['placeholder'] = "I'm looking for...";
-// }
-
-// function arrowhead_preprocess_search_block_form(&$variables) {
-//   // dpm($variables);
-// }
-
-
-
